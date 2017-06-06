@@ -32,6 +32,13 @@ const todos = (state = [], action) => {
       return state.map(t =>
         todo(t, action)
       );
+
+    case 'DELETE_TODO':
+
+      return state.filter((item) => {
+        return item.id !== action.id;
+      });
+
     default:
       return state;
   }
